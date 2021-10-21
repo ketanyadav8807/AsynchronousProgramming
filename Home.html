@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home-page</title>
+    <style>
+      body {
+        font-family: serif;
+        font-size: 30px;
+        font-weight: 520;
+        background-color: rgb(211, 231, 221);
+      }
+      .navbar {
+        margin-top: 20px;
+        padding: 5px;
+        border: 1.5px solid black;
+        display: flex;
+        background-color: rgba(28, 28, 219, 0.678);
+      }
+      .navbar > div:nth-child(1) {
+        margin-left: 70%;
+      }
+      .navbar > div:nth-child(2) {
+        margin: 0px 40px;
+      }
+      .image-div {
+        width: 75%;
+        height: 500px;
+        padding: 2.5%;
+        border-radius: 80px 40px;
+        margin: 40px auto;
+        border: 4px solid maroon;
+      }
+      #image {
+        width: 100%;
+        height: 100%;
+        border-radius: 80px 40px;
+        border: 1px solid green;
+      }
+      #movieContainer {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        border: 3px solid maroon;
+        border-radius: 10px;
+      }
+      #movieContainer > div {
+        border: 2px solid maroon;
+        width: 30%;
+        margin: 20px;
+        text-align: center;
+        border-radius: 80px 40px;
+      }
+      #movieContainer > div > img {
+        width: 100%;
+      }
+      .movie-sort-by-div {
+        text-align: center;
+        padding: 1%;
+        background-color: rgba(28, 28, 219, 0.678);
+        width: 60%;
+        margin: 20px auto;
+        border-radius: 30px 10px;
+        border: 2px solid maroon;
+      }
+      option {
+        font-size: 22px;
+      }
+      #movie-select{
+        font-size: 22px;
+        border-radius: 10px;
+        padding: 0.3%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>Home</div>
+      <div>Login</div>
+      <div>Signup</div>
+    </div>
+    <div class="image-div"><img src="" id="image" /></div>
+
+    <div class="movie-sort-by-div">
+      <select name="movie" id="movie-select">
+        <option value="sort by">--Sort by--</option>
+        <option value="low rating to high">low rating to high</option>
+        <option value="High rating to low">High rating to low</option>
+      </select>
+    </div>
+    <div id="movieContainer"></div>
+
+    <script type="text/javascript">
+
+        alert("Successfully Login");
+
+      let image = document.getElementById("image");
+      let movie_array = [
+        "https://images.cinemaexpress.com/uploads/user/imagelibrary/2020/5/1/original/3_Idiots.PNG",
+        "https://otakukart.com/wp-content/uploads/2021/05/featured-image-10.jpg",
+        "https://www.koimoi.com/wp-content/new-galleries/2020/12/scam-1992-is-streaming-on-sonyliv-since-oct-9-001.jpg",
+        "https://1.bp.blogspot.com/-uPldKd6u_CM/YU2jmLQ2boI/AAAAAAAAB3c/vRxmjZCQFukGMUde5ki6NYzGWdkZvMDigCLcBGAsYHQ/s750/IMG_20210924_153746.jpg",
+        "http://img.theweek.in/content/dam/week/review/movies/images/2020/4/3/panchayat-imdb.jpg",
+        "https://s1.dmcdn.net/v/GAyqO1UCzcG8xg_Fl/x1080",
+      ];
+
+      // imageChange ---------------------image show---setTimeout
+      var i = 0;
+
+      function imageChange() {
+        image.src = movie_array[i];
+
+        if (i < movie_array.length - 1) {
+          i++;
+        } else {
+          i = 0;
+        }
+        setTimeout(imageChange, 2000);
+      }
+
+      // imageChange ---------------------image show---setTimeout
+
+      let movieList = [
+        {
+          Title: "3 Idiots",
+          Released: "25 December 2009",
+          Imdb: 8.4,
+          url: "https://images.cinemaexpress.com/uploads/user/imagelibrary/2020/5/1/original/3_Idiots.PNG",
+        },
+        {
+          Title: "The Pursuit of Happyness",
+          Released: "15 December 2006",
+          Imdb: 8,
+          url: "https://otakukart.com/wp-content/uploads/2021/05/featured-image-10.jpg",
+        },
+        {
+          Title: "Scam 1992",
+          Released: "9 October 2000",
+          Imdb: 9.5,
+          url: "https://www.koimoi.com/wp-content/new-galleries/2020/12/scam-1992-is-streaming-on-sonyliv-since-oct-9-001.jpg",
+        },
+        {
+          Title: "Kota Factory",
+          Released: "16 April 2019",
+          Imdb: 9.2,
+          url: "https://1.bp.blogspot.com/-uPldKd6u_CM/YU2jmLQ2boI/AAAAAAAAB3c/vRxmjZCQFukGMUde5ki6NYzGWdkZvMDigCLcBGAsYHQ/s750/IMG_20210924_153746.jpg",
+        },
+        {
+          Title: "Panchayat",
+          Released: "3 April 2020",
+          Imdb: 8.8,
+          url: "http://img.theweek.in/content/dam/week/review/movies/images/2020/4/3/panchayat-imdb.jpg",
+        },
+        {
+          Title: "Manjhi",
+          Released: "21 August 2015",
+          Imdb: 8,
+          url: "https://s1.dmcdn.net/v/GAyqO1UCzcG8xg_Fl/x1080",
+        },
+        {
+          Title: "Hell",
+          Released: "10 Jul 2012",
+          Imdb: 7.1,
+          url: "https://m.media-amazon.com/images/M/MV5BMTgxMDA3OTUwNF5BMl5BanBnXkFtZTgwNTEzMTg5MDE@._V1_SX300.jpg",
+        },
+        {
+          Title: "Current",
+          Released: "19 Jun 2009",
+          Imdb: 7.5,
+          url: "https://m.media-amazon.com/images/M/MV5BYTc4OGFlNWItYWRjMS00Mjg2LTg1NzItMWM1ZDdmMDMzYmRjXkEyXkFqcGdeQXVyNTgxODY5ODI@._V1_SX300.jpg",
+        },
+        {
+          Title: "Anaconda",
+          Released: "11 Apr 1997",
+          Imdb: 9.5,
+          url: "https://m.media-amazon.com/images/M/MV5BZDc4ODcyNWMtMzI2Zi00YzcwLWE4ZTUtYWM3OWI1MTgwYTc1XkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
+        },
+      ];
+
+      function showMovie(movieList) {
+        let movieContainer = document.getElementById("movieContainer");
+
+        for (index in movieList) {
+          let movie_div = document.createElement("div");
+          let title = document.createElement("h2");
+          let release = document.createElement("p");
+          let imdb = document.createElement("p");
+          let image = document.createElement("img");
+
+          title.innerHTML = movieList[index].Title;
+          release.innerHTML = `Released: ${movieList[index].Released}`;
+          imdb.innerHTML = `Imdb: ${movieList[index].Imdb}`;
+          image.src = movieList[index].url;
+
+          movie_div.append(title, image, release, imdb);
+          movieContainer.append(movie_div);
+        }
+      }
+
+      
+
+      window.addEventListener("load", function () {
+        imageChange();
+        showMovie(movieList);
+      });
+    </script>
+  </body>
+</html>

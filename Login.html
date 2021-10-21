@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page</title>
+    <style>
+        body {
+        font-family: serif;
+        font-size: 30px;
+        font-weight: 520;
+        background-color: rgb(211, 231, 221);
+      }
+        .navbar{
+            margin-top: 20px;
+            padding: 5px;
+            border: 1.5px solid black;
+            display: flex;
+            background-color: white;
+        }
+        .navbar > div:nth-child(1){
+            margin-left: 70%;
+        }
+        .navbar > div:nth-child(2){
+            margin: 0px 40px;
+        }
+
+        .login-detail {
+        border: 1.5px solid black;
+        padding: 20px;
+        width: 40%;
+        text-align: center;
+        margin: 50px auto;
+        background-color: white;
+        border-radius: 5px;
+      }
+      .login-detail > h3 {
+        border: 1px solid black;
+        padding: 0.5%;
+        background-color: mintcream;
+        border-radius: 5px;
+      }
+      #Login-button {
+          font-family: unset;
+        font-size: 25px;
+        padding: 1.5%;
+        margin-top: 25px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        background-color: rgba(0, 128, 0, 0.664);
+        border-radius: 20px 10px;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>Home</div>
+        <div>Login</div>
+        <div><a href="../AsynchronousProgramming/Signup.html">Signup</a></div>
+    </div>
+
+    <div class="login-detail">
+        <h3>Login</h3>
+        <div>Email</div>
+        <input type="email" id="email" placeholder="Email" />
+        <div>Password</div>
+        <input type="password" id="password" placeholder="password" />
+        </br>
+        <button id="Login-button">Login</button>
+    </div>
+
+    <script type="text/javascript">
+
+        let email = document.getElementById("email")
+        let password = document.getElementById("password")
+        let btn = document.getElementById("Login-button");
+
+        btn.addEventListener("click" , handleLogin);
+
+        function handleLogin(){
+            var all_users_detail = localStorage.getItem('user_details');
+            all_users_detail = JSON.parse(all_users_detail);
+            if(email.value == all_users_detail[0].user_email && password.value == all_users_detail[0].user_password){
+                window.location.assign("http://127.0.0.1:5500/Unit_03/AsynchronousProgramming/Home.html");
+            }
+            else{
+                alert("Invalid Credentials");
+            }
+             email.value = "" 
+             password.value = ""
+        }
+
+
+    </script>
+</body>
+</html>

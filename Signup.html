@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+      body {
+        font-family: serif;
+        font-size: 30px;
+        font-weight: 520;
+        background-color: rgb(211, 231, 221);
+      }
+      .navbar {
+        margin-top: 20px;
+        padding: 5px;
+        border: 1.5px solid black;
+        display: flex;
+        background-color: white;
+      }
+      .navbar > div:nth-child(1) {
+        margin-left: 70%;
+      }
+      .navbar > div:nth-child(2) {
+        margin: 0px 40px;
+      }
+      .signup-detail {
+        border: 1.5px solid black;
+        padding: 20px;
+        width: 40%;
+        text-align: center;
+        margin: 50px auto;
+        background-color: white;
+        border-radius: 5px;
+      }
+      .signup-detail > h3 {
+        border: 1px solid black;
+        padding: 0.5%;
+        background-color: mintcream;
+        border-radius: 5px;
+      }
+      #signup-button {
+        font-size: 20px;
+        padding: 1.5%;
+        margin-top: 25px;
+        letter-spacing: 1px;
+        font-weight: 550;
+        background-color: rgba(0, 128, 0, 0.664);
+        border-radius: 20px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>Home</div>
+      <div><a href="../AsynchronousProgramming/Login.html">Login</a></div>
+      <div>Signup</div>
+    </div>
+
+    <div class="signup-detail">
+      <h3>Signup</h3>
+      <div>
+        <div>Name</div>
+        <input type="text" id="name" placeholder="name" />
+      </div>
+      <div>
+        <div>Contact-No</div>
+        <input type="tel" id="tel" placeholder="Contect-Number" />
+      </div>
+      <div>
+        <div>Email</div>
+        <input type="email" id="email" placeholder="Email" />
+      </div>
+      <div>
+        <div>Password</div>
+        <input type="password" id="password" placeholder="password" />
+      </div>
+      <button id="signup-button">Signup</button>
+    </div>
+
+    <script type="text/javascript">
+
+      let name =  document.getElementById("name")
+      let contact = document.getElementById("tel")
+      let email = document.getElementById("email")
+      let password = document.getElementById("password")
+      let btn = document.getElementById("signup-button")
+
+      var user_details = [];
+
+      btn.addEventListener("click" , handelSignup)
+
+      function handelSignup(){
+          if(name.value == "" || contact.value == "" || email.value == "" || password.value == ""){
+              alert("fill all details properly");
+          }
+          else{
+          var detail = {
+              user_name: name.value,
+              user_contact: contact.value,
+              user_email: email.value,
+              user_password: password.value
+          }
+          user_details.push(detail);
+          localStorage.setItem("user_details" , JSON.stringify(user_details));
+          console.log(name.value , contact.value , email.value , password.value);
+          name.value = ""
+          contact.value = ""
+          email.value = ""
+          password.value = ""
+          alert("Signup Successfull")
+      }
+      }
+    </script>
+  </body>
+</html>
